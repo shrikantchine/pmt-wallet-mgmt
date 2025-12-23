@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: currency-conversion-service
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      lettuce:
+        pool:
+          enabled: true
+          max-active: 8
+          max-idle: 8
