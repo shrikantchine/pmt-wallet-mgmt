@@ -7,7 +7,7 @@ spring:
     password: password
     hikari:
       jdbc-url: jdbc:postgresql://localhost:5432/user_db
-      maximum-pool-size: 100
+      maximum-pool-size: 10
       pool-name: USER-DB-CONN-POOL
 
 
@@ -26,3 +26,5 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       acks: 1
+server:
+  port: 8081

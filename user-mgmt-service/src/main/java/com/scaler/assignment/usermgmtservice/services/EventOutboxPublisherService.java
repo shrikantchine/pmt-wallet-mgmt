@@ -25,7 +25,7 @@ public class EventOutboxPublisherService {
     private final EventOutboxRepository eventOutboxRepository;
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    @Scheduled(fixedRate = 500000, initialDelay = 1000)
+    @Scheduled(fixedRate = 5000, initialDelay = 1000)
     @Transactional
     public void eventOutboxPublish() {
         List<EventOutbox> events = eventOutboxRepository.findByProcessedFalseOrderByCreatedAtAsc();
@@ -40,7 +40,7 @@ public class EventOutboxPublisherService {
             String key = event.getAggregateId().toString();
             var future = kafkaTemplate.send(topic, key, event.getPayload())
                     .toCompletableFuture()
-                    .thenAccept(result -> successfulIds.add(event.getAggregateId()))
+                    .thenAccept(result -> successfulIds.add(event.getId()))
                     .exceptionally(ex -> {
                         log.error("Failed to relay event {}: {}", event.getId(), ex.getMessage());
                         return null;
