@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/currency-conversion-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/currency-conversion-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/pmt-wallet-mgmt.iml" filepath="$PROJECT_DIR$/pmt-wallet-mgmt.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-mgmt-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/user-mgmt-service.main.iml" />
     </modules>
