@@ -26,4 +26,5 @@ public class BeansConfig {
                 .authorizeHttpRequests(req -> req.anyRequest().permitAll());
         return http.build();
     }
+
 }

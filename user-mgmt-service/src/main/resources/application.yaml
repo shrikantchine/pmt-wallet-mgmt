@@ -9,6 +9,8 @@ spring:
       jdbc-url: jdbc:postgresql://localhost:5432/user_db
       maximum-pool-size: 100
       pool-name: USER-DB-CONN-POOL
+
+
   mvc:
     apiversion:
       use:
@@ -16,4 +18,11 @@ spring:
   threads:
     virtual:
       enabled: false
-
+  jpa:
+    show-sql: true
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9094
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: 1
