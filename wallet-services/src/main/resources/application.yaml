@@ -3,11 +3,11 @@ spring:
     name: wallet-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/wallet_db
-    username: wallet_manager
-    password: password
+    url: ${PG_DB_URL:jdbc:postgresql://localhost:5432/wallet_db}
+    username: ${PG_USERNAME:wallet_manager}
+    password: ${PG_PASSWORD:password}
     hikari:
-      jdbc-url: jdbc:postgresql://localhost:5432/wallet_db
+      jdbc-url: ${PG_DB_URL:jdbc:postgresql://localhost:5432/wallet_db}
       maximum-pool-size: 10
       pool-name: WALLET-DB-CONN-POOL
 
@@ -18,6 +18,6 @@ spring:
     show-sql: true
   kafka:
     consumer:
-      bootstrap-servers: localhost:9094
+      bootstrap-servers: ${KAFKA_BS_SERVERS:localhost:9094}
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

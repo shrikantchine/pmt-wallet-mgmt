@@ -31,11 +31,11 @@ public class SchedulerConfig {
     @Value("#{'${rates.supportedCurrencies}'.split(', ')}")
     private List<String> supportedCurrencies;
 
-    @PostConstruct
+    /*@PostConstruct
     public void onStartup() {
         log.info("Application started. Warming up Exchange Rate Cache...");
         refreshHotRates();
-    }
+    }*/
 
     @Scheduled(cron = "0 0 * * * *")
     public void refreshHotRates() {
